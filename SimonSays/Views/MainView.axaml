@@ -1,0 +1,136 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SimonSays.ViewModels"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="600"
+             x:Class="SimonSays.Views.MainView"
+             x:DataType="vm:MainViewModel">
+
+	<!-- Tervezési adatok a tervezői nézethez -->
+	<Design.DataContext>
+		<vm:MainViewModel />
+	</Design.DataContext>
+
+	<!-- Fő tartalom -->
+	<Grid>
+		<!-- Háttér -->
+		<Grid.Background>
+			<ImageBrush Source="C:\Users\Levi\source\repos\SimonSays\SimonSays\Assets\Background.jpeg" Stretch="UniformToFill" />
+
+		</Grid.Background>
+
+		<!-- Átlátszó fedőréteg -->
+		<Border Background="#88000000" />
+
+		<!-- Fő elrendezés -->
+		<Grid>
+			<!-- Sorok definiálása -->
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<!-- Címsor -->
+				<RowDefinition Height="*" />
+				<!-- Játék terület -->
+			</Grid.RowDefinitions>
+
+			<!-- Címsor -->
+			<StackPanel Grid.Row="0" Margin="10" HorizontalAlignment="Center">
+				<TextBlock Text="Simon Says"
+                           FontSize="36"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center" />
+				<TextBlock Text="{Binding LevelText}"
+                           FontSize="18"
+                           Foreground="LightGray"
+                           HorizontalAlignment="Center"
+                           Margin="5" />
+			</StackPanel>
+
+			<!-- Játék terület -->
+			<StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
+				<!-- Start gomb -->
+				<Button Content="Start"
+                        Command="{Binding StartCommand}"
+                        Width="140"
+                        Height="50"
+                        Background="#FF007ACC"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="18"
+						HorizontalAlignment="Center"
+						HorizontalContentAlignment="Center"
+						VerticalContentAlignment="Center" />
+
+				<!-- Színes gombok (3x3 UniformGrid) -->
+				<UniformGrid Rows="3" Columns="3" HorizontalAlignment="Center" Margin="10">
+					<Button Background="{Binding RedButtonColor}"
+                            Command="{Binding ColorClickCommand}"
+                            CommandParameter="Red"
+                            Width="100"
+                            Height="100"
+                            Margin="5"
+                            BorderThickness="0" />
+					<Button Background="{Binding BlueButtonColor}"
+                            Command="{Binding ColorClickCommand}"
+                            CommandParameter="Blue"
+                            Width="100"
+                            Height="100"
+                            Margin="5"
+                            BorderThickness="0" />
+					<Button Background="{Binding GreenButtonColor}"
+                            Command="{Binding ColorClickCommand}"
+                            CommandParameter="Green"
+                            Width="100"
+                            Height="100"
+                            Margin="5"
+                            BorderThickness="0" />
+					<Button Background="{Binding YellowButtonColor}"
+                            Command="{Binding ColorClickCommand}"
+                            CommandParameter="Yellow"
+                            Width="100"
+                            Height="100"
+                            Margin="5"
+                            BorderThickness="0" />
+					<Button Background="{Binding PurpleButtonColor}"
+                            Command="{Binding ColorClickCommand}"
+                            CommandParameter="Purple"
+                            Width="100"
+                            Height="100"
+                            Margin="5"
+                            BorderThickness="0" />
+					<Button Background="{Binding FuchsiaButtonColor}"
+                            Command="{Binding ColorClickCommand}"
+                            CommandParameter="Fuchsia"
+                            Width="100"
+                            Height="100"
+                            Margin="5"
+                            BorderThickness="0" />
+					<Button Background="{Binding DarkKhakiButtonColor}"
+                            Command="{Binding ColorClickCommand}"
+                            CommandParameter="DarkKhaki"
+                            Width="100"
+                            Height="100"
+                            Margin="5"
+                            BorderThickness="0" />
+					<Button Background="{Binding TurquoiseButtonColor}"
+                            Command="{Binding ColorClickCommand}"
+                            CommandParameter="Turquoise"
+                            Width="100"
+                            Height="100"
+                            Margin="5"
+                            BorderThickness="0" />
+					<Button Background="{Binding CoralButtonColor}"
+                            Command="{Binding ColorClickCommand}"
+                            CommandParameter="Coral"
+                            Width="100"
+                            Height="100"
+                            Margin="5"
+                            BorderThickness="0" />
+				</UniformGrid>
+			</StackPanel>
+		</Grid>
+	</Grid>
+</UserControl>

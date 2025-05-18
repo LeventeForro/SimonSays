@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+    <Content Include="Assets\Sounds\*.wav">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Remove="Assets\Background.jpeg" />
+    <AvaloniaResource Remove="Assets\Sounds\blue.wav" />
+    <AvaloniaResource Remove="Assets\Sounds\Cymbals .wav" />
+    <AvaloniaResource Remove="Assets\Sounds\do%27.wav" />
+    <AvaloniaResource Remove="Assets\Sounds\do.wav" />
+    <AvaloniaResource Remove="Assets\Sounds\fa.wav" />
+    <AvaloniaResource Remove="Assets\Sounds\la.wav" />
+    <AvaloniaResource Remove="Assets\Sounds\mi.wav" />
+    <AvaloniaResource Remove="Assets\Sounds\so.wav" />
+    <AvaloniaResource Remove="Assets\Sounds\ti.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Background.jpeg" />
+  </ItemGroup>
+</Project>
